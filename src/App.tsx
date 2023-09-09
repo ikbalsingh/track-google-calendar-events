@@ -6,6 +6,7 @@ import moment from 'moment';
 import './style.css';
 import { CalendarEvent } from './interface';
 
+//TODO: Remove credentials
 const API_KEY = 'AIzaSyDtkGCmNn3QSaaFPfax8HySNbvvVBk7AI8';
 const CALENDAR_ID = 'ikbalsinghdhanjal23@gmail.com';
 
