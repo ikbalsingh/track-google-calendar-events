@@ -5,10 +5,13 @@ import moment from 'moment';
 
 import './style.css';
 import { CalendarEvent } from './interface';
+import { API_KEY, CALENDAR_ID } from './creds';
 
-//TODO: Remove credentials
-const API_KEY = 'AIzaSyDtkGCmNn3QSaaFPfax8HySNbvvVBk7AI8';
-const CALENDAR_ID = 'ikbalsinghdhanjal23@gmail.com';
+declare global {
+  interface Window {
+    gapi: any;
+  }
+}
 
 interface LoadingState {
   isLoading: boolean;

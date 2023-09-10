@@ -76,11 +76,8 @@ export const Charts: FC<ICharts> = ({ events }) => {
     },
   };
 
-  const trackableEvents = events.filter(
-    (ev) =>
-      // TODO: change this condition to make actual tracking
-      // ev.summary?.toLowerCase().includes('track:')
-      !!ev.summary
+  const trackableEvents = events.filter((ev) =>
+    ev.summary?.toLowerCase().includes('track:')
   );
 
   const eventDateMap = trackableEvents.reduce((acc, ev) => {
@@ -179,7 +176,6 @@ export const Charts: FC<ICharts> = ({ events }) => {
       acc,
       currentValue: { success: CalendarEvent[]; failed: CalendarEvent[] }
     ) => {
-      // TODO: test failed condition
       currentValue.failed.forEach((ev) => {
         if (acc[ev.recurringEventId]) {
           acc[ev.recurringEventId].push(ev);
@@ -212,7 +208,14 @@ export const Charts: FC<ICharts> = ({ events }) => {
         <div style={{ width: '50%' }}>
           <Line options={lineOptions} data={lineChartRatioData} />
         </div>
-        <div style={{ width: '50%', display: 'flex', alignItems: 'center' }}>
+        <div
+          style={{
+            width: '50%',
+            display: 'flex',
+            alignItems: 'center',
+            flexDirection: 'column',
+          }}
+        >
           <Card sx={{ minWidth: 275 }}>
             <CardContent>
               <Typography variant="h5" component="div">
